@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
+
+
+body {
+	margin: 0;
+	font-size: 30px;
+	font-family:Sono;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #FFFDD0;
+  }
+
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+table td {
+	border: 1px solid grey;
+	width: 100px;
+	height: 100px;
+}
+
