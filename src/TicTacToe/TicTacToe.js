@@ -5,7 +5,7 @@ import "./TicTacToe.css"
 const TicTacToe = () => {
     const [turn, setTurn] = useState('X')
     const [winner, setWinner] = useState(null)
-    const [cells, setCells] = useState(Array(9).fill(" "))
+    const [cells, setCells] = useState(Array(9).fill(""))
     const [clicked, setClicked] = useState(false)
     /* [
         '', '', '', 
@@ -44,9 +44,9 @@ const TicTacToe = () => {
                 // if any of the squares has an empty string no X or O
                 // we cant have a winner
                 if (
-                    [...cells, pattern[0]] === " " ||
-                    squares[pattern[1]] === " " ||
-                    squares[pattern[2]] === " "
+                    [...cells, pattern[0]] === "" ||
+                    squares[pattern[1]] === "" ||
+                    squares[pattern[2]] === ""
                 ) {
                     // do nothing
                     // check to see if first position matches the second 
@@ -54,59 +54,61 @@ const TicTacToe = () => {
                 } else if (
                     squares[pattern[0]] === squares[pattern[1]] &&
                     squares[pattern[1]] === squares[pattern[2]]
-                ) {
-                    // set the winner to the first letter in the squares array
-                    setWinner(squares[pattern[0]])
-                    setClicked(false)
-                }
-            })
-        }
-    }
-
-    const handleClick = (num) => {
-        setClicked(true)
-        if (cells[num] !== " ") {
-            alert("already clicked")
-            return;
-        }
-
-        let squares = [...cells]
-
-        if (turn === 'X') {
-            squares[num] = "X"
-            setTurn('O')
-        } else {
-            squares[num] = "O"
-            setTurn('X')
-        }
-
-        let b = false
-
-        if (clicked) {
-            let a = 0
-            for (let i = 0; i < cells.length; i++) {
-                if (cells[i] !== ' ') {
-                    b = false
-                    a++;
-                } else {b = true}
-                
+                    ) {
+                        // set the winner to the first letter in the squares array
+                        setWinner(squares[pattern[0]])
+                        setClicked(false)
+                    }
+                })
             }
-            console.log(a)
-            if (a === 8 && b === true && cells[8] !== ' ') {
-                return setWinner("nobody")
-            } 
         }
-
-
-
-        checkForWinner(squares)
-        setCells(squares)
-        // console.log(squares)
-    }
-
-    const handleRestart = () => {
+        
+        const handleClick = (num) => {
+            setClicked(true)
+            if (cells[num] !== "") {
+                alert("already clicked")
+                return;
+            }
+            
+            let squares = [...cells]
+            
+            if (turn === 'X') {
+                squares[num] = "X"
+                setTurn('O')
+            } else {
+                squares[num] = "O"
+                setTurn('X')
+            }
+            
+            
+            setCells(squares)
+            if (clicked) {
+                let a = 0
+                let b = false
+                cells.forEach(cell => {
+                    if (cell !== ""){
+                        a++
+                        b = true
+                    }
+                })
+                
+                checkForWinner(squares)
+                .then(() => {
+                    if (b) {
+                        return setWinner("nobody")
+                    } 
+                }
+                )
+            }
+            
+            
+            
+            // console.log(squares)
+        }
+        
+        const handleRestart = () => {
         setWinner(null);
-        setCells(Array(9).fill(' '));
+        setCells(Array(9).fill(''));
     }
 
     const Cell = ({ num }) => {
