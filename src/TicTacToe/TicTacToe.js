@@ -85,16 +85,17 @@ const TicTacToe = () => {
         if (clicked) {
             let a = 0
             for (let i = 0; i < cells.length; i++) {
-                if (cells[i] !== ' ') {
+                if (cells[i] !== '') {
                     b = false
-                    a++;
+                    a++
                 } else {b = true}
                 
             }
             console.log(a)
-            if (a === 8 && b === true && cells[8] !== ' ') {
+            if (a === 8 && b === true && cells[8] !== '') {
                 return setWinner("nobody")
             } 
+            
         }
 
 
