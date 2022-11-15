@@ -5,7 +5,7 @@ import "./TicTacToe.css"
 const TicTacToe = () => {
     const [turn, setTurn] = useState('X')
     const [winner, setWinner] = useState(null)
-    const [cells, setCells] = useState(Array(9).fill(''))
+    const [cells, setCells] = useState(Array(9).fill(" "))
     const [clicked, setClicked] = useState(false)
     /* [
         '', '', '', 
@@ -44,9 +44,9 @@ const TicTacToe = () => {
                 // if any of the squares has an empty string no X or O
                 // we cant have a winner
                 if (
-                    [...cells, pattern[0]] === "" ||
-                    squares[pattern[1]] === "" ||
-                    squares[pattern[2]] === ""
+                    [...cells, pattern[0]] === " " ||
+                    squares[pattern[1]] === " " ||
+                    squares[pattern[2]] === " "
                 ) {
                     // do nothing
                     // check to see if first position matches the second 
@@ -59,17 +59,13 @@ const TicTacToe = () => {
                     setWinner(squares[pattern[0]])
                     setClicked(false)
                 }
-
-
-
             })
         }
-
     }
 
     const handleClick = (num) => {
         setClicked(true)
-        if (cells[num] !== "") {
+        if (cells[num] !== " ") {
             alert("already clicked")
             return;
         }
@@ -84,18 +80,21 @@ const TicTacToe = () => {
             setTurn('X')
         }
 
+        let b = false
 
         if (clicked) {
             let a = 0
             for (let i = 0; i < cells.length; i++) {
-                if (cells[i] !== '') {
+                if (cells[i] !== ' ') {
+                    b = false
                     a++;
-                }
+                } else {b = true}
+                
             }
             console.log(a)
-            if (a === 8) {
+            if (a === 8 && b === true && cells[8] !== ' ') {
                 return setWinner("nobody")
-            }
+            } 
         }
 
 
@@ -107,11 +106,12 @@ const TicTacToe = () => {
 
     const handleRestart = () => {
         setWinner(null);
-        setCells(Array(9).fill(''));
+        setCells(Array(9).fill(' '));
     }
 
     const Cell = ({ num }) => {
-        return <td onClick={() => handleClick(num)}>{cells[num]}</td>
+        return <td onClick={() => 
+            handleClick(num)}>{cells[num]}</td>
     }
 
     return (
