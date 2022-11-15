@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=pressstart2p:wght@400;700&display=swap');
 body {
   margin: 0;
   font-size: 30px;
-  font-family:Sono;
+  font-family:pressstart2p;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: tomato;

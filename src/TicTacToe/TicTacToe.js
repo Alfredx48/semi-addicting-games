@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import "./TicTacToe.css"
 
 
@@ -12,6 +12,8 @@ const TicTacToe = () => {
         '', '', '',
         '', '', ''
         ]*/
+
+      
 
     const checkForWinner = (squares) => {
         // console.log(cells)
@@ -86,9 +88,9 @@ const TicTacToe = () => {
             let a = 0
             for (let i = 0; i < cells.length; i++) {
                 if (cells[i] !== ' ') {
-                    b = false
+                    b = true
                     a++;
-                } else {b = true}
+                } else {b = false}
                 
             }
             console.log(a)
