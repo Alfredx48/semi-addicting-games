@@ -18,12 +18,12 @@ table td {
   border: 1px solid grey;
   width: 100px;
   height: 100px;
-  color: white;
+  color: tomato;
 }
 table
 {
   background:black;
-  box-shadow:0px 0px 6px 5px black;
+
 }
 table td
 {
@@ -48,7 +48,7 @@ table td
   height:38px;
   width:38px;
   border-radius:19px;
-  border:1px solid white;
+  border:1px solid tomato;
   display:inline-block;
   position:absolute;
   top:0px;
@@ -76,7 +76,7 @@ table td
   width:46px;
   box-shadow:0px 0px 5px 3px red;
   display:inline-block;
-  background-color:white;
+  background-color:tomato;
   position:absolute;
    -webkit-transform:translateY(22px)
                      translateX(-4px)
@@ -89,7 +89,7 @@ table td
   width:2px;
   box-shadow:0px 0px 5px 3px red;
   display:inline-block;
-  background-color:white;
+  background-color:tomato;
   position:absolute;
      -webkit-transform:
           translateY(0px)
@@ -98,27 +98,27 @@ table td
 }
 table tr:first-child
 {
-  box-shadow:0px 8px 5px -5px white;
+  box-shadow:0px 8px 5px -5px tomato;
 }
 table tr:nth-child(2)
 {
-  box-shadow:0px -8px 5px -5px white
-        , 0px 8px 5px -5px white;
+  box-shadow:0px -8px 5px -5px tomato
+        , 0px 8px 5px -5px tomato;
 }
 table tr:last-child
 {
-  box-shadow:0px -8px 5px -5px white;
+  box-shadow:0px -8px 5px -5px tomato;
 }
 table tr td:first-child
 {
-  box-shadow:8px 0px 5px -5px white;
+  box-shadow:8px 0px 5px -5px tomato;
 }
 table tr td:nth-child(2)
 {
-  box-shadow:-8px 0px 5px -5px white
-        , 8px 0px 5px -5px white;
+  box-shadow:-8px 0px 5px -5px tomato
+        , 8px 0px 5px -5px tomato;
 }
 table tr td:last-child
 {
-  box-shadow:-8px 0px 5px -5px white;
+  box-shadow:-8px 0px 5px -5px tomato;
 }
