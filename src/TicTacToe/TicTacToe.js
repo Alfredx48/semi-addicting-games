@@ -1,6 +1,16 @@
 import React, { useState } from 'react'
 import "./TicTacToe.css"
+import {motion} from "framer-motion"
 
+const linkStyles = {
+    display: "inline-block",
+    padding: "12px",
+    margin: "0 6px 6px",
+    background: "lightgreen",
+    textDecoration: "none",
+    color: "white",
+    borderRadius:"10px"
+  };
 
 const TicTacToe = () => {
     const [turn, setTurn] = useState('X')
@@ -91,14 +101,10 @@ const TicTacToe = () => {
                         b = true
                     }
                 })
-                
                 checkForWinner(squares)
-                .then(() => {
-                    if (b) {
-                        return setWinner("nobody")
-                    } 
-                }
-                )
+                if (b && a === 8) {
+                    return setWinner("nobody")
+                } 
             }
             
             
@@ -118,7 +124,7 @@ const TicTacToe = () => {
 
     return (
         <div className='container'>
-            Turn : {turn}
+            <h1>Turn : {turn}</h1>
             <table>
                 <tbody>
                     <tr>
@@ -138,11 +144,20 @@ const TicTacToe = () => {
                     </tr>
                 </tbody>
             </table>
-            {winner && (
-                <>
+            {winner && ( 
+            <motion.div
+                className="container"
+                initial={{ scale: 0 }}
+                animate={{ rotate: 360, scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 35
+                }}
+              >
                     <p>{winner} is the winner </p>
-                    <button onClick={() => handleRestart()}>Play Again</button>
-                </>
+                    <button style={linkStyles} onClick={() => handleRestart()}>Play Again</button>
+                    </motion.div>
             )}
         </div>
     )

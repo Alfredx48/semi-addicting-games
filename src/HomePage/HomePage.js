@@ -1,7 +1,17 @@
 import React, {useState} from "react";
 import "./HomePage.css"
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import TicTacToe from "../TicTacToe/TicTacToe";
+import { NavLink } from "react-router-dom";
+const linkStyles = {
+    display: "inline-block",
+    padding: "12px",
+    margin: "0 6px 6px",
+    background: "lightgreen",
+    textDecoration: "none",
+    color: "white",
+    borderRadius:"10px"
+  };
 
 const HomePage = () => {
     return(
@@ -12,18 +22,16 @@ const HomePage = () => {
                 animate={{ rotate: 360, scale: 1 }}
                 transition={{
                     type: "spring",
-                    stiffness: 260,
+                    stiffness: 150,
                     damping: 20
                 }}
                 >
             <h1>Hello from the HomePage</h1>
             </motion.div>
-            <AnimateSharedLayout>
                 <motion.ul layout initial={{ borderRadius: 25 }}>
                     <Item1 />
                     <Item2 />
                 </motion.ul>
-            </AnimateSharedLayout>
         </div>
     )
 }
@@ -33,6 +41,8 @@ const Item1 = () => {
     const toggleOpen = () => setIsOpen(!isOpen);
     return(
         <motion.li layout onMouseEnter={toggleOpen} onMouseLeave={toggleOpen} initial={{ borderRadius: 10 }}>
+            <motion.div className="avatar" layout />
+            <h2>TicTacToe</h2>
             <AnimatePresence>{isOpen && <Game1 />}</AnimatePresence>
         </motion.li>
     )
@@ -42,6 +52,8 @@ const Item2 = () => {
     const toggleOpen = () => setIsOpen(!isOpen);
     return(
         <motion.li layout onMouseEnter={toggleOpen} onMouseLeave={toggleOpen} initial={{ borderRadius: 10 }}>
+            <motion.div className="avatar" layout />
+            <h2>HangMan</h2>
             <AnimatePresence>{isOpen && <Game2 />}</AnimatePresence>
         </motion.li>
     )
@@ -56,6 +68,8 @@ const Game1 = () => {
         exit={{ opacity: 0 }}
       >
         <TicTacToe />
+        <br/>
+        <NavLink exact to="/tic_tac_toe" style={linkStyles}>Play Game</NavLink>
       </motion.div>
     )
 }
@@ -67,7 +81,9 @@ const Game2 = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        Hello
+        "Put HangMan Here"
+        <br/>
+        <NavLink exact to="/hangman" style={linkStyles}>Play Game</NavLink>
       </motion.div>
     )
 }

@@ -15,6 +15,9 @@ function App() {
       <Route exact path="/tic_tac_toe">
         <TicTacToe />
       </Route>
+      <Route exact path="/hangman">
+        <h1>Work in Progress</h1>
+      </Route>
       </Switch>
     </div>
   );
