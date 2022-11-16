@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./TicTacToe.css"
+// import "./TicTacToe.css"
 import {motion} from "framer-motion"
 
 const linkStyles = {
@@ -15,8 +15,8 @@ const linkStyles = {
 const TicTacToe = () => {
     const [turn, setTurn] = useState('X')
     const [winner, setWinner] = useState(null)
-    const [cells, setCells] = useState(Array(9).fill(""))
-    const [clicked, setClicked] = useState(false)
+    const [cells, setCells] = useState(Array(9).fill(''))
+    const [clicked, setClicked] = useState(0)
     /* [
         '', '', '', 
         '', '', '',
@@ -44,7 +44,6 @@ const TicTacToe = () => {
 
         // Loop through each of the items in the squares Array
         // to see if any of them match the combos. 
-
         for (let combo in combos) {
             combos[combo].forEach((pattern) => {
                 // console.log(pattern)
@@ -53,6 +52,7 @@ const TicTacToe = () => {
                 // console.log(pattern[0])
                 // if any of the squares has an empty string no X or O
                 // we cant have a winner
+                // console.log(squares[pattern[1]])
                 if (
                     [...cells, pattern[0]] === "" ||
                     squares[pattern[1]] === "" ||
@@ -67,15 +67,18 @@ const TicTacToe = () => {
                     ) {
                         // set the winner to the first letter in the squares array
                         setWinner(squares[pattern[0]])
-                        setClicked(false)
+                    }else if (clicked === 8 && winner === null) {
+                        setWinner("nobody")
                     }
                 })
             }
         }
         
         const handleClick = (num) => {
-            setClicked(true)
+            setClicked(prevState => prevState + 1)
+            console.log(clicked)
             if (cells[num] !== "") {
+                setClicked(prevState => prevState - 1)
                 alert("already clicked")
                 return;
             }
@@ -92,20 +95,19 @@ const TicTacToe = () => {
             
             
             setCells(squares)
-            if (clicked) {
-                let a = 0
-                let b = false
-                cells.forEach(cell => {
-                    if (cell !== ""){
-                        a++
-                        b = true
-                    }
-                })
-                checkForWinner(squares)
-                if (b && a === 8) {
-                    return setWinner("nobody")
-                } 
-            }
+            checkForWinner(squares)
+            // if (clicked) {
+            //     let a = 0
+            //     cells.forEach(cell => {
+            //         if (cell !== ""){
+            //             a++
+            //         }
+            //     })
+            //     console.log(a)
+            //     if (a === 8 && winner == null) {
+            //         return setWinner("nobody")
+            //     } 
+            // }
             
             
             
@@ -115,6 +117,7 @@ const TicTacToe = () => {
         const handleRestart = () => {
         setWinner(null);
         setCells(Array(9).fill(''));
+        setClicked(0)
     }
 
     const Cell = ({ num }) => {
@@ -156,7 +159,7 @@ const TicTacToe = () => {
                 }}
               >
                     <p>{winner} is the winner </p>
-                    <button style={linkStyles} onClick={() => handleRestart()}>Play Again</button>
+                    <button style={linkStyles} onClick={handleRestart}>Play Again</button>
                     </motion.div>
             )}
         </div>

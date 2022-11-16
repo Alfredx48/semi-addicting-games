@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "./HomePage.css"
 import { motion, AnimatePresence } from "framer-motion";
 import TicTacToe from "../TicTacToe/TicTacToe";
 import { NavLink } from "react-router-dom";
