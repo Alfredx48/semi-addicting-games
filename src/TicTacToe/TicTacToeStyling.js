@@ -2,6 +2,7 @@ import {createGlobalStyle} from "styled-components"
 
 const TicTacToeStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=fire|neon');
 html, body{
   min-height: 100vh;
   padding: 0;

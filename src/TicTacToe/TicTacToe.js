@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import "./TicTacToe.css"
 import {motion} from "framer-motion"
+import Table from './Table';
 
 const linkStyles = {
     display: "inline-block",
@@ -17,6 +18,7 @@ const TicTacToe = () => {
     const [winner, setWinner] = useState(null)
     const [cells, setCells] = useState(Array(9).fill(''))
     const [clicked, setClicked] = useState(0)
+    const [xoClass, setXoClass] = useState(true)
     /* [
         '', '', '', 
         '', '', '',
@@ -122,10 +124,7 @@ const TicTacToe = () => {
         setClicked(0)
     }
 
-    const Cell = ({ num }) => {
-        return <td onClick={() => 
-            handleClick(num)}>{cells[num]}</td>
-    }
+    const changeXO = () => setXoClass(!xoClass)
 
     return (
         <div className='container'>
@@ -151,25 +150,13 @@ const TicTacToe = () => {
                     damping: 20
                 }}
                 >
-                <table>
-                    <tbody>
-                        <tr>
-                            <Cell num={0} id="cell1"/>
-                            <Cell num={1} id="cell2"/>
-                            <Cell num={2} id="cell3"/>
-                        </tr>
-                        <tr>
-                            <Cell num={3} id="cell4"/>
-                            <Cell num={4} id="cell5"/>
-                            <Cell num={5} id="cell6"/>
-                        </tr>
-                        <tr>
-                            <Cell num={6} id="cell7"/>
-                            <Cell num={7} id="cell8"/>
-                            <Cell num={8} id="cell9"/>
-                        </tr>
-                    </tbody>
-                </table>
+                <Table
+                    handleClick={handleClick}
+                    xoClass={xoClass}
+                    setXoClass={setXoClass}
+                    changeXO={changeXO}
+                    cells={cells}
+                />
             </motion.div>
             {winner && ( 
             <motion.div

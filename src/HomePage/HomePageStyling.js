@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 const HomePageStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
@@ -34,8 +34,8 @@ table td {
     padding:10px;
   }
   table tr:first-child
-{
-  box-shadow:0px 8px 5px -5px cornsilk;
+  {
+    box-shadow:0px 8px 5px -5px cornsilk;
 }
 table tr:nth-child(2)
 {
