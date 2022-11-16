@@ -1,19 +1,24 @@
+import {createGlobalStyle} from "styled-components"
+
+const HangmanStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=pressstart2p:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: tomato;
+  background: linear-gradient(290deg, palegreen, thistle);
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Sono;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
   margin: 0;
   overflow: hidden;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -30,8 +35,8 @@ h1 {
 
 .figure-container {
   fill: transparent;
-  stroke: #fff;
-  stroke-width: 4px;
+  stroke: darkgoldenrod;
+  stroke-width: 10px;
   stroke-linecap: round;
 }
 
@@ -40,12 +45,10 @@ h1 {
 }
 
 .wrong-letters-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
+    bottom: -20px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .wrong-letters-container p {
@@ -59,20 +62,22 @@ h1 {
 .word {
   display: flex;
   position: absolute;
-  bottom: 10px;
+  bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .letter {
-  border-bottom: 3px solid #2980b9;
+  border-bottom: 5px solid midnightblue;
   display: inline-flex;
   font-size: 30px;
   align-items: center;
   justify-content: center;
-  margin: 0 3px;
+  margin: 0 10px;
   height: 50px;
   width: 20px;
+  font-weight: bold
+  text-transform: uppercase;
 }
 
 .popup-container {
@@ -82,7 +87,7 @@ h1 {
   bottom: 0;
   left: 0;
   right: 0;
-  /* display: flex; */
+  display: flex; 
   display: none;
   align-items: center;
   justify-content: center;
@@ -119,8 +124,9 @@ h1 {
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
-  bottom: -50px;
+  bottom: -100px;
   transition: transform 0.3s ease-in-out;
+  left: 25%
 }
 
 .notification-container p {
@@ -128,5 +134,7 @@ h1 {
 }
 
 .notification-container.show {
-  transform: translateY(-50px);
+  transform: translateY(-100px);
 }
+`
+export default HangmanStyle
