@@ -11,13 +11,13 @@ import { showNotification as show, checkWin } from './Helpers';
 
 const words = ['application', 'programming', 'interface', 'wizard', 'librarian', 'granite','trampoline','garage','retraction','reminiscing','nicotine','rattling','summon','jumping','entangle','euphoric','caramel','dreaming','responsible','cannabis','raspberry','lemonade','classified','rabbit','repeating','mentioned','provide','established','democracy','renting','liberty','construction','trembling','salmon','laughter','serpentine','retirement','attraction','rebel'];
 
+let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 const Hangman = () => {
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-  let selectedWord = words[Math.floor(Math.random() * words.length)];
 
   useEffect(() => {
     const handleKeydown = event => {
@@ -26,16 +26,16 @@ const Hangman = () => {
         const letter = key.toLowerCase();
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
-            setCorrectLetters(correctLetters => [...correctLetters, letter]);
+            setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
             show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
-            setWrongLetters(correctLetters => [...correctLetters, letter]);
+            setWrongLetters(currentLetters => [...currentLetters, letter]);
           } else {
             show(setShowNotification);
-           
+            
           }
         }
       }
