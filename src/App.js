@@ -1,10 +1,12 @@
 import './App.css';
 import TicTacToe from './TicTacToe/TicTacToe';
+import Hangman from './Hangman - Copy/Hangman';
 import HomePage from './HomePage/HomePage';
 import NavBar from './HomePage/NavBar';
 import { Route, Switch } from "react-router-dom";
 import HomePageStyle from './HomePage/HomePageStyling';
 import TicTacToeStyle from './TicTacToe/TicTacToeStyling';
+import HangmanStyle from './Hangman - Copy/HangmanStyling';
 
 function App() {
   return (
@@ -20,7 +22,8 @@ function App() {
         <TicTacToe />
       </Route>
       <Route exact path="/hangman">
-        <h1>Work in Progress</h1>
+        <HangmanStyle/>
+        <Hangman/>
       </Route>
       </Switch>
     </div>

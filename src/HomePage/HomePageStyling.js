@@ -1,6 +1,6 @@
 import {createGlobalStyle} from "styled-components"
 
-const HomePageStyle = createGlobalStyle `
+const HomePageStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
 body{
   margin: 0;

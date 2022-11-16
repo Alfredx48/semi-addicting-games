@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TicTacToe from "../TicTacToe/TicTacToe";
+import Hangman from "../Hangman - Copy/Hangman";
 import { NavLink } from "react-router-dom";
 const linkStyles = {
     display: "inline-block",
@@ -80,7 +81,7 @@ const Game2 = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        "Put HangMan Here"
+        <Hangman/>
         <br/>
         <NavLink exact to="/hangman" style={linkStyles}>Play Game</NavLink>
       </motion.div>
