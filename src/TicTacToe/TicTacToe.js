@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 // import "./TicTacToe.css"
 import {motion} from "framer-motion"
+=======
+import React, { useState, } from 'react'
+import "./TicTacToe.css"
+>>>>>>> main
 
 const linkStyles = {
     display: "inline-block",
@@ -22,6 +27,8 @@ const TicTacToe = () => {
         '', '', '',
         '', '', ''
         ]*/
+
+      
 
     const checkForWinner = (squares) => {
         // console.log(cells)
@@ -64,6 +71,7 @@ const TicTacToe = () => {
                 } else if (
                     squares[pattern[0]] === squares[pattern[1]] &&
                     squares[pattern[1]] === squares[pattern[2]]
+<<<<<<< HEAD
                     ) {
                         // set the winner to the first letter in the squares array
                         setWinner(squares[pattern[0]])
@@ -71,6 +79,44 @@ const TicTacToe = () => {
                         setWinner("nobody")
                     }
                 })
+=======
+                ) {
+                    // set the winner to the first letter in the squares array
+                    setWinner(squares[pattern[0]])
+                    setClicked(false)
+                }
+            })
+        }
+    }
+
+    const handleClick = (num) => {
+        setClicked(true)
+        if (cells[num] !== " ") {
+            alert("already clicked")
+            return;
+        }
+
+        let squares = [...cells]
+
+        if (turn === 'X') {
+            squares[num] = "X"
+            setTurn('O')
+        } else {
+            squares[num] = "O"
+            setTurn('X')
+        }
+
+        let b = false
+
+        if (clicked) {
+            let a = 0
+            for (let i = 0; i < cells.length; i++) {
+                if (cells[i] !== ' ') {
+                    b = true
+                    a++;
+                } else {b = false}
+                
+>>>>>>> main
             }
         }
         

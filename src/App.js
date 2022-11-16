@@ -1,5 +1,6 @@
 import './App.css';
 import TicTacToe from './TicTacToe/TicTacToe';
+<<<<<<< HEAD
 import Hangman from './Hangman - Copy/Hangman';
 import HomePage from './HomePage/HomePage';
 import NavBar from './HomePage/NavBar';
@@ -26,6 +27,16 @@ function App() {
         <Hangman/>
       </Route>
       </Switch>
+=======
+import Hangman from './Hangman/Hangman'
+function App() {
+  return (
+    <div className="App">
+      <TicTacToe />
+      <br/>
+      <br/>
+      <Hangman />
+>>>>>>> main
     </div>
   );
 }
