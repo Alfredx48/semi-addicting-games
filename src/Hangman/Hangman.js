@@ -48,8 +48,6 @@ const Hangman = () => {
 
   function playAgain() {
     setPlayable(true);
-
-    
     setCorrectLetters([]);
     setWrongLetters([]);
 

@@ -66,6 +66,5 @@ td:hover
 {
 background: paleturquoise;
 }
-
 `
 export default TicTacToeStyle
