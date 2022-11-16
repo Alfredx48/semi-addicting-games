@@ -1,15 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const Word = ({selectedWord, correctLetters}) => {
+const Word = ({ selectedWord, correctLetters }) => {
 
   return (
-    
-    <div className="word" id="word">
-      {selectedWord.split('').map((letter, index) => {
+    <div className="word">
+      {selectedWord.split('').map((letter, i) => {
         return (
-        <span className="letter" key={index}>
-          {correctLetters.includes(letter) ? letter : ''}
-        </span>
+          <span className="letter" key={i}>
+            {correctLetters.includes(letter) ? letter : ''}
+          </span>
         )
       })}
     </div>
