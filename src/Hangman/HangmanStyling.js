@@ -135,6 +135,6 @@ h1 {
 
 .notification-container.show {
   transform: translateY(-100px);
-}
-`
+}`
+
 export default HangmanStyle

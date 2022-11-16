@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import "./TicTacToe.css"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
+import Table from './Table';
 
 const linkStyles = {
     display: "inline-block",
@@ -9,10 +10,11 @@ const linkStyles = {
     background: "lightgreen",
     textDecoration: "none",
     color: "white",
-    borderRadius:"10px"
-  };
+    borderRadius: "10px"
+};
 
 const TicTacToe = () => {
+    const [xoClass, setXoClass] = useState(true)
     const [turn, setTurn] = useState('X')
     const [winner, setWinner] = useState(null)
     const [cells, setCells] = useState(Array(9).fill(''))
@@ -22,8 +24,6 @@ const TicTacToe = () => {
         '', '', '',
         '', '', ''
         ]*/
-
-      
 
     const checkForWinner = (squares) => {
         // console.log(cells)
@@ -66,70 +66,51 @@ const TicTacToe = () => {
                 } else if (
                     squares[pattern[0]] === squares[pattern[1]] &&
                     squares[pattern[1]] === squares[pattern[2]]
-                    ) {
-                        // set the winner to the first letter in the squares array
-                        setWinner(squares[pattern[0]])
-                    }else if (clicked === 8 && winner === null) {
-                        setWinner("nobody")
-                    }
-                })
-            }
+                ) {
+                    // set the winner to the first letter in the squares array
+                    setWinner(squares[pattern[0]])
+                } else if (clicked === 8 && winner === null) {
+                    setWinner("nobody")
+                }
+            })
         }
-        
-        const handleClick = (num) => {
-            setClicked(prevState => prevState + 1)
-            console.log(clicked)
-            if (cells[num] !== "") {
-                setClicked(prevState => prevState - 1)
-                alert("already clicked")
-                return;
-            }
-            
-            let squares = [...cells]
-            
-            if (turn === 'X') {
-                squares[num] = "X"
-                setTurn('O')
-            } else {
-                squares[num] = "O"
-                setTurn('X')
-            }
-            
-            
-            setCells(squares)
-            checkForWinner(squares)
-            // if (clicked) {
-            //     let a = 0
-            //     cells.forEach(cell => {
-            //         if (cell !== ""){
-            //             a++
-            //         }
-            //     })
-            //     console.log(a)
-            //     if (a === 8 && winner == null) {
-            //         return setWinner("nobody")
-            //     } 
-            // }
-            
-            
-            
-            // console.log(squares)
+    }
+
+    const handleClick = (num) => {
+        setClicked(prevState => prevState + 1)
+        console.log(clicked)
+        if (cells[num] !== "") {
+            setClicked(prevState => prevState - 1)
+            alert("already clicked")
+            return;
         }
-        
-        const handleRestart = () => {
+
+        let squares = [...cells]
+
+        if (turn === 'X') {
+            squares[num] = "X"
+            setTurn('O')
+        } else {
+            squares[num] = "O"
+            setTurn('X')
+        }
+
+        setCells(squares)
+        checkForWinner(squares)
+    }
+
+    const handleRestart = () => {
         setWinner(null);
         setCells(Array(9).fill(''));
         setClicked(0)
     }
 
-    const Cell = ({ num }) => {
-        return <td onClick={() => 
-            handleClick(num)}>{cells[num]}</td>
-    }
+    const changeXO = () => setXoClass(!xoClass)
+
 
     return (
         <div className='container'>
-                        <motion.div
+            <motion.div
                 className="container"
                 initial={{ scale: 0 }}
                 animate={{ rotate: 360, scale: 1 }}
@@ -138,8 +119,8 @@ const TicTacToe = () => {
                     stiffness: 150,
                     damping: 20
                 }}
-                >
-            <h1>Turn : {turn}</h1>
+            >
+                <h1>Turn : {turn}</h1>
             </motion.div>
             <motion.div
                 className="container"
@@ -150,47 +131,34 @@ const TicTacToe = () => {
                     stiffness: 150,
                     damping: 20
                 }}
-                >
-                <table>
-                    <tbody>
-                        <tr>
-                            <Cell num={0} />
-                            <Cell num={1} />
-                            <Cell num={2} />
-                        </tr>
-                        <tr>
-                            <Cell num={3} />
-                            <Cell num={4} />
-                            <Cell num={5} />
-                        </tr>
-                        <tr>
-                            <Cell num={6} />
-                            <Cell num={7} />
-                            <Cell num={8} />
-                        </tr>
-                    </tbody>
-                </table>
+            >
+                <Table
+                    handleClick={handleClick}
+                    xoClass={xoClass}
+                    setXoClass={setXoClass}
+                    changeXO={changeXO}
+                    cells={cells}
+                />
             </motion.div>
-            {winner && ( 
-            <motion.div
-                className="container"
-                initial={{ scale: 0 }}
-                animate={{ rotate: 360, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 35
-                }}
-              >
+            {winner && (
+                <motion.div
+                    className="container"
+                    initial={{ scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 35
+                    }}
+                >
                     <p>{winner} is the winner </p>
                     <button style={linkStyles} onClick={handleRestart}>Play Again</button>
-                    </motion.div>
+                </motion.div>
             )}
         </div>
     )
 }
 
 export default TicTacToe
-
 
 //TESTING GIT
