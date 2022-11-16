@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TicTacToe from "../TicTacToe/TicTacToe";
-import Hangman from "../Hangman - Copy/Hangman";
+import Hangman from "../Hangman/Hangman";
 import { NavLink } from "react-router-dom";
 const linkStyles = {
     display: "inline-block",

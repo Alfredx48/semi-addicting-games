@@ -1,13 +1,12 @@
 import './App.css';
 import TicTacToe from './TicTacToe/TicTacToe';
-<<<<<<< HEAD
-import Hangman from './Hangman - Copy/Hangman';
+import Hangman from './Hangman/Hangman';
 import HomePage from './HomePage/HomePage';
 import NavBar from './HomePage/NavBar';
 import { Route, Switch } from "react-router-dom";
 import HomePageStyle from './HomePage/HomePageStyling';
 import TicTacToeStyle from './TicTacToe/TicTacToeStyling';
-import HangmanStyle from './Hangman - Copy/HangmanStyling';
+import HangmanStyle from './Hangman/HangmanStyling';
 
 function App() {
   return (
@@ -27,16 +26,6 @@ function App() {
         <Hangman/>
       </Route>
       </Switch>
-=======
-import Hangman from './Hangman/Hangman'
-function App() {
-  return (
-    <div className="App">
-      <TicTacToe />
-      <br/>
-      <br/>
-      <Hangman />
->>>>>>> main
     </div>
   );
 }

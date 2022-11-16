@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import React, { useState } from 'react'
 // import "./TicTacToe.css"
 import {motion} from "framer-motion"
-=======
-import React, { useState, } from 'react'
-import "./TicTacToe.css"
->>>>>>> main
 
 const linkStyles = {
     display: "inline-block",
@@ -71,7 +66,6 @@ const TicTacToe = () => {
                 } else if (
                     squares[pattern[0]] === squares[pattern[1]] &&
                     squares[pattern[1]] === squares[pattern[2]]
-<<<<<<< HEAD
                     ) {
                         // set the winner to the first letter in the squares array
                         setWinner(squares[pattern[0]])
@@ -79,44 +73,6 @@ const TicTacToe = () => {
                         setWinner("nobody")
                     }
                 })
-=======
-                ) {
-                    // set the winner to the first letter in the squares array
-                    setWinner(squares[pattern[0]])
-                    setClicked(false)
-                }
-            })
-        }
-    }
-
-    const handleClick = (num) => {
-        setClicked(true)
-        if (cells[num] !== " ") {
-            alert("already clicked")
-            return;
-        }
-
-        let squares = [...cells]
-
-        if (turn === 'X') {
-            squares[num] = "X"
-            setTurn('O')
-        } else {
-            squares[num] = "O"
-            setTurn('X')
-        }
-
-        let b = false
-
-        if (clicked) {
-            let a = 0
-            for (let i = 0; i < cells.length; i++) {
-                if (cells[i] !== ' ') {
-                    b = true
-                    a++;
-                } else {b = false}
-                
->>>>>>> main
             }
         }
         
@@ -173,26 +129,48 @@ const TicTacToe = () => {
 
     return (
         <div className='container'>
+                        <motion.div
+                className="container"
+                initial={{ scale: 0 }}
+                animate={{ rotate: 360, scale: 1 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 20
+                }}
+                >
             <h1>Turn : {turn}</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <Cell num={0} />
-                        <Cell num={1} />
-                        <Cell num={2} />
-                    </tr>
-                    <tr>
-                        <Cell num={3} />
-                        <Cell num={4} />
-                        <Cell num={5} />
-                    </tr>
-                    <tr>
-                        <Cell num={6} />
-                        <Cell num={7} />
-                        <Cell num={8} />
-                    </tr>
-                </tbody>
-            </table>
+            </motion.div>
+            <motion.div
+                className="container"
+                initial={{ scale: 0 }}
+                animate={{ rotate: 360, scale: 1 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 20
+                }}
+                >
+                <table>
+                    <tbody>
+                        <tr>
+                            <Cell num={0} />
+                            <Cell num={1} />
+                            <Cell num={2} />
+                        </tr>
+                        <tr>
+                            <Cell num={3} />
+                            <Cell num={4} />
+                            <Cell num={5} />
+                        </tr>
+                        <tr>
+                            <Cell num={6} />
+                            <Cell num={7} />
+                            <Cell num={8} />
+                        </tr>
+                    </tbody>
+                </table>
+            </motion.div>
             {winner && ( 
             <motion.div
                 className="container"
