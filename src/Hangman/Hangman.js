@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Figure from './Figure'
-// import './Hangman.css'
+import './Hangman.css'
 import WrongLetters from './WrongLetters'
 import Word from './Word'
 import WordPopup from './WordPopup'
 import Notification from './Notification'
-import { showNotification as show } from './Helpers';
-import {motion} from "framer-motion"
+import { showNotification as show, checkWin } from './Helpers';
 
 
 
@@ -48,6 +47,8 @@ const Hangman = () => {
 
   function playAgain() {
     setPlayable(true);
+
+    
     setCorrectLetters([]);
     setWrongLetters([]);
 
@@ -58,18 +59,7 @@ const Hangman = () => {
   return (
     <>
       <div className="game-container">
-      <motion.div
-                className="container"
-                initial={{ scale: 0 }}
-                animate={{ rotate: -360, scale: 1 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 150,
-                    damping: 20
-                }}
-                >
         <Figure wrongLetters={wrongLetters} />
-            </motion.div>
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
