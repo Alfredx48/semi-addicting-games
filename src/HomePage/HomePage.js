@@ -31,6 +31,7 @@ const HomePage = () => {
                 <motion.ul layout initial={{ borderRadius: 25 }}>
                     <Item1 />
                     <Item2 />
+                    <Item3 />
                 </motion.ul>
         </div>
     )
@@ -58,6 +59,17 @@ const Item2 = () => {
         </motion.li>
     )
 }
+const Item3 = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleOpen = () => setIsOpen(!isOpen);
+    return(
+        <motion.li layout onMouseEnter={toggleOpen} onMouseLeave={toggleOpen} initial={{ borderRadius: 10 }}>
+            <motion.div className="avatar" layout />
+            <h2>Construction Zone</h2>
+            <AnimatePresence>{isOpen && <Game3 />}</AnimatePresence>
+        </motion.li>
+    )
+}
 
 const Game1 = () => {
     return (
@@ -69,7 +81,7 @@ const Game1 = () => {
       >
         <TicTacToe />
         <br/>
-        <NavLink exact to="/tic_tac_toe" style={linkStyles}>Play Game</NavLink>
+        <NavLink exact to="/tic_tac_toe" style={linkStyles} className="links">Play Game</NavLink>
       </motion.div>
     )
 }
@@ -83,7 +95,21 @@ const Game2 = () => {
       >
         <Hangman/>
         <br/>
-        <NavLink exact to="/hangman" style={linkStyles}>Play Game</NavLink>
+        <NavLink exact to="/hangman" style={linkStyles} className="links">Play Game</NavLink>
+      </motion.div>
+    )
+}
+const Game3 = () => {
+    return (
+        <motion.div
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <h1>WorkInProgress</h1>
+        <br/>
+        <NavLink exact to="/workinprogress" style={linkStyles} className="links">Play Game</NavLink>
       </motion.div>
     )
 }

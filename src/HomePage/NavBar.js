@@ -15,6 +15,7 @@ function NavBar() {
     return (
       <div>
         <NavLink
+        className="links"
           to="/"
           exact
           style={linkStyles}
@@ -25,6 +26,7 @@ function NavBar() {
           Home
         </NavLink>
         <NavLink
+        className="links"
           to="/tic_tac_toe"
           exact
           style={linkStyles}
@@ -35,6 +37,7 @@ function NavBar() {
           TicTacToe
         </NavLink>
         <NavLink
+        className="links"
           to="/hangman"
           exact
           style={linkStyles}
@@ -43,6 +46,17 @@ function NavBar() {
           }}
         >
           HangMan
+        </NavLink>
+        <NavLink
+        className="links"
+          to="/workinprogress"
+          exact
+          style={linkStyles}
+          activeStyle={{
+            background: "pink",
+          }}
+        >
+          ConstructionZone
         </NavLink>
       </div>
     );

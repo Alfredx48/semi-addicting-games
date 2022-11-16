@@ -128,6 +128,5 @@ li:last-child {
   background: "blue";
   color: "white";
 }
-
 `
 export default HomePageStyle

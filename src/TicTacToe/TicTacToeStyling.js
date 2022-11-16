@@ -61,5 +61,9 @@ table tr td:last-child
 {
   box-shadow:-8px 0px 5px -5px cornsilk;
 }
+td:hover
+{
+background: paleturquoise;
+}
 `
 export default TicTacToeStyle

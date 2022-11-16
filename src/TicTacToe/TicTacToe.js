@@ -154,19 +154,19 @@ const TicTacToe = () => {
                 <table>
                     <tbody>
                         <tr>
-                            <Cell num={0} />
-                            <Cell num={1} />
-                            <Cell num={2} />
+                            <Cell num={0} id="cell1"/>
+                            <Cell num={1} id="cell2"/>
+                            <Cell num={2} id="cell3"/>
                         </tr>
                         <tr>
-                            <Cell num={3} />
-                            <Cell num={4} />
-                            <Cell num={5} />
+                            <Cell num={3} id="cell4"/>
+                            <Cell num={4} id="cell5"/>
+                            <Cell num={5} id="cell6"/>
                         </tr>
                         <tr>
-                            <Cell num={6} />
-                            <Cell num={7} />
-                            <Cell num={8} />
+                            <Cell num={6} id="cell7"/>
+                            <Cell num={7} id="cell8"/>
+                            <Cell num={8} id="cell9"/>
                         </tr>
                     </tbody>
                 </table>
