@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 const HomePageStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
@@ -22,7 +22,7 @@ table td {
     border: 1px solid grey;
     width: 100px;
     height: 100px;
-    color: tomato;
+    color: cornsilk;
   }
   table
   {
@@ -35,30 +35,30 @@ table td {
   }
   table tr:first-child
   {
-    box-shadow:0px 8px 5px -5px tomato;
-  }
-  table tr:nth-child(2)
-  {
-    box-shadow:0px -8px 5px -5px tomato
-          , 0px 8px 5px -5px tomato;
-  }
-  table tr:last-child
-  {
-    box-shadow:0px -8px 5px -5px tomato;
-  }
-  table tr td:first-child
-  {
-    box-shadow:8px 0px 5px -5px tomato;
-  }
-  table tr td:nth-child(2)
-  {
-    box-shadow:-8px 0px 5px -5px tomato
-          , 8px 0px 5px -5px tomato;
-  }
-  table tr td:last-child
-  {
-    box-shadow:-8px 0px 5px -5px tomato;
-  }
+    box-shadow:0px 8px 5px -5px cornsilk;
+}
+table tr:nth-child(2)
+{
+  box-shadow:0px -8px 5px -5px cornsilk
+        , 0px 8px 5px -5px cornsilk;
+}
+table tr:last-child
+{
+  box-shadow:0px -8px 5px -5px cornsilk;
+}
+table tr td:first-child
+{
+  box-shadow:8px 0px 5px -5px cornsilk;
+}
+table tr td:nth-child(2)
+{
+  box-shadow:-8px 0px 5px -5px cornsilk
+        , 8px 0px 5px -5px cornsilk;
+}
+table tr td:last-child
+{
+  box-shadow:-8px 0px 5px -5px cornsilk;
+}
 
 html,
 body {
