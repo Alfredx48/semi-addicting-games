@@ -16,7 +16,7 @@ export const NotFound  = () => {
     <div>
         {/* <h1> 404 NotFound </h1>
         <h4>You Have Gone To Far</h4> */}
-        <NavLink exact to="/" style={linkStyles} className="links">Return to HomePage</NavLink>
+        <NavLink exact to="/" style={linkStyles} className="links"><b className='font-effect-anaglyph'>Return to HomePage</b></NavLink>
     </div>
     
   )

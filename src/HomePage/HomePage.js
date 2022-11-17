@@ -41,7 +41,7 @@ const HomePage = () => {
           damping: 20,
         }}
       >
-        <h1>Semi-Addicting Games</h1>
+        <h1 className="font-effect-3d-float">Semi-Addicting Games</h1>
       </motion.div>
       <motion.ul layout initial={{ borderRadius: 25 }}>
         <Item1 />

@@ -95,7 +95,7 @@ function App() {
       <Route exact path="/workinprogress">
       <NavBar/>
         <ConstructionZoneStyle/>
-        <h1>WorkInProgress</h1>
+        <h1 className='font-effect-anaglyph'>WorkInProgress</h1>
         <button onClick={()=>setClicked(!clicked)} style={linkStyles}>Click Here to see backend</button>
         <br/>
         <Img/>
