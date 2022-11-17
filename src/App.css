@@ -54,3 +54,23 @@ button:active{
 .links{
   padding: 12px;
 }
+.form
+{
+    background-color: cornflowerblue;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 20px;
+    
+}
+.reviews {
+  background-color: rgba(214, 214, 214, .5);
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 20px;
+}

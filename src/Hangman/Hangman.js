@@ -1,50 +1,110 @@
-import React, { useEffect, useState } from 'react'
-import Figure from './Figure'
+import React, { useEffect, useState } from "react";
+import Figure from "./Figure";
 // import './Hangman.css'
-import WrongLetters from './WrongLetters'
-import Word from './Word'
-import WordPopup from './WordPopup'
-import Notification from './Notification'
-import { showNotification as show } from './Helpers';
-import {motion} from "framer-motion"
+import WrongLetters from "./WrongLetters";
+import Word from "./Word";
+import WordPopup from "./WordPopup";
+import Notification from "./Notification";
+import { showNotification as show } from "./Helpers";
+import { motion } from "framer-motion";
+
+const words = [
+  "application",
+  "programming",
+  "interface",
+  "wizard",
+  "librarian",
+  "granite",
+  "trampoline",
+  "garage",
+  "retraction",
+  "reminiscing",
+  "nicotine",
+  "rattling",
+  "summon",
+  "jumping",
+  "entangle",
+  "euphoric",
+  "caramel",
+  "dreaming",
+  "responsible",
+  "cannabis",
+  "raspberry",
+  "lemonade",
+  "classified",
+  "rabbit",
+  "repeating",
+  "mentioned",
+  "provide",
+  "established",
+  "democracy",
+  "renting",
+  "liberty",
+  "construction",
+  "trembling",
+  "salmon",
+  "laughter",
+  "serpentine",
+  "retirement",
+  "attraction",
+  "rebel",
+];
 
 
-
-const words = ['application', 'programming', 'interface', 'wizard', 'librarian', 'granite','trampoline','garage','retraction','reminiscing','nicotine','rattling','summon','jumping','entangle','euphoric','caramel','dreaming','responsible','cannabis','raspberry','lemonade','classified','rabbit','repeating','mentioned','provide','established','democracy','renting','liberty','construction','trembling','salmon','laughter','serpentine','retirement','attraction','rebel'];
-
-let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 const Hangman = () => {
+
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [Words, setWords] = useState([]);
+  const [selectedWords, setSelectedWords] = useState([]);
+
+  const fetchWords = () => {
+    fetch("http://localhost:8000/words")
+      .then((res) => res.json())
+      .then((wordData) => {
+        setWords(wordData);
+        console.log(wordData);
+        console.log(selectedWord)
+      });
+  };
 
   useEffect(() => {
-    const handleKeydown = event => {
+    fetchWords();
+ 
+  
+  }, []);
+
+  let selectedWord = words[Math.floor(Math.random() * words.length)];
+  console.log(Words[Math.floor(Math.random() * Words.length)])
+
+  useEffect(() => {
+   
+    const handleKeydown = (event) => {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
         const letter = key.toLowerCase();
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
-            setCorrectLetters(currentLetters => [...currentLetters, letter]);
+            setCorrectLetters((currentLetters) => [...currentLetters, letter]);
           } else {
             show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
-            setWrongLetters(currentLetters => [...currentLetters, letter]);
+            setWrongLetters((currentLetters) => [...currentLetters, letter]);
           } else {
             show(setShowNotification);
-            
           }
         }
       }
-    }
-    window.addEventListener('keydown', handleKeydown);
+    };
+    window.addEventListener("keydown", handleKeydown);
 
-    return () => window.removeEventListener('keydown', handleKeydown);
-  }, [correctLetters, wrongLetters, playable]);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  }, [correctLetters, wrongLetters, playable ]);
 
   function playAgain() {
     setPlayable(true);
@@ -58,27 +118,33 @@ const Hangman = () => {
   return (
     <>
       <div className="game-container">
-        <h1 className='font-effect-3d'>HangMan</h1>
-        <br/>
-      <motion.div
-                className="container"
-                initial={{ scale: 0 }}
-                animate={{ rotate: -360, scale: 1 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 150,
-                    damping: 20
-                }}
-                >
-        <Figure wrongLetters={wrongLetters} />
-            </motion.div>
+        <h1 className="font-effect-3d">HangMan</h1>
+        <br />
+        <motion.div
+          className="container"
+          initial={{ scale: 0 }}
+          animate={{ rotate: -360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 150,
+            damping: 20,
+          }}
+        >
+          <Figure wrongLetters={wrongLetters} />
+        </motion.div>
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
-      <WordPopup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain} />
+      <WordPopup
+        correctLetters={correctLetters}
+        wrongLetters={wrongLetters}
+        selectedWord={selectedWord}
+        setPlayable={setPlayable}
+        playAgain={playAgain}
+      />
       {/* <Notification showNotification={showNotification} /> */}
     </>
   );
-}
+};
 
 export default Hangman;

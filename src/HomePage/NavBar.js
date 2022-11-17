@@ -6,7 +6,7 @@ const linkStyles = {
   display: "inline-block",
   padding: "12px",
   margin: "0 6px 6px",
-  background: "lightgreen",
+  background: "mistyrose",
   textDecoration: "none",
   color: "white",
   borderRadius: "10px",
@@ -89,6 +89,21 @@ function NavBar() {
         style={{textDecoration: "none"}}
       >
         ConstructionZone
+      </NavLink>
+    </motion.div>
+      <motion.div
+      style={linkStyles}
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <NavLink
+        className="links"
+        to="/reviews"
+        exact
+        style={{textDecoration: "none"}}
+      >
+        Reviews
       </NavLink>
     </motion.div>
     </div>

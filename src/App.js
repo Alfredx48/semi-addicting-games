@@ -13,6 +13,7 @@ import NotFoundStyle from './NotFound/NotFoundStyling';
 import {useState} from "react"
 import * as React from "react";
 import { motion } from "framer-motion";
+import Reviews from './Reviews/Form';
 
 const container = {
   hidden: { opacity: 1, scale: 1 },
@@ -99,6 +100,10 @@ function App() {
         <button onClick={()=>setClicked(!clicked)} style={linkStyles}>Click Here to see backend</button>
         <br/>
         <Img/>
+      </Route>
+      <Route exact path="/reviews">
+        <NavBar/>
+        <Reviews />
       </Route>
       <Route path='*'>
         <NotFoundStyle />
