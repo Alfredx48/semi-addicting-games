@@ -2,14 +2,6 @@ import { createGlobalStyle } from "styled-components"
 
 const HomePageStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
-body{
-  margin: 0;
-  font-size: 30px;
-  font-family:Sono;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: tomato;
-  }
 .container {
   display: flex;
   flex-direction: column;
@@ -66,14 +58,6 @@ body {
   padding: 0;
   margin: 0;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-  }
 
 * {
   box-sizing: border-box;
@@ -111,6 +95,7 @@ li {
   margin-bottom: 20px;
   overflow: hidden;
   cursor: pointer;
+  text-align:center;
 }
 
 li:last-child {
@@ -119,16 +104,13 @@ li:last-child {
 
 .avatar {
   width: 40px;
-  height: 40px;
-  background-color: #666;
   border-radius: 20px;
 }
 
 .nav {
   display: "inline-block";
   padding: "12px";
-  margin: "0 6px 6px";
-  background: "blue";
+  // margin: "0 6px 6px";
   color: "white";
 }
 `

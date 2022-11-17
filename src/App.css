@@ -47,4 +47,8 @@ button:active{
 }
 .links:active{
   transform: scale(0.98);
+  color:pink;
+}
+.links{
+  padding: 12px;
 }

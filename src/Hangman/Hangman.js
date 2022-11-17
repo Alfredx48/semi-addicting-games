@@ -58,6 +58,8 @@ const Hangman = () => {
   return (
     <>
       <div className="game-container">
+        <h1 className='font-effect-3d'>HangMan</h1>
+        <br/>
       <motion.div
                 className="container"
                 initial={{ scale: 0 }}

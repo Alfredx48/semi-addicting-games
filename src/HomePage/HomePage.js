@@ -11,6 +11,22 @@ const linkStyles = {
   color: "white",
   borderRadius: "10px",
 };
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
 
 const HomePage = () => {
   return (
@@ -42,9 +58,11 @@ const Item1 = () => {
   return (
     <motion.li
       layout
-      onMouseEnter={toggleOpen}
-      onMouseLeave={toggleOpen}
+      onClick={toggleOpen}
       initial={{ borderRadius: 10 }}
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
     >
       <motion.div className="avatar" layout />
       <h2>TicTacToe</h2>
@@ -58,9 +76,11 @@ const Item2 = () => {
   return (
     <motion.li
       layout
-      onMouseEnter={toggleOpen}
-      onMouseLeave={toggleOpen}
+      onClick={toggleOpen}
       initial={{ borderRadius: 10 }}
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
     >
       <motion.div className="avatar" layout />
       <h2>HangMan</h2>
@@ -74,9 +94,11 @@ const Item3 = () => {
   return (
     <motion.li
       layout
-      onMouseEnter={toggleOpen}
-      onMouseLeave={toggleOpen}
+      onClick={toggleOpen}
       initial={{ borderRadius: 10 }}
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
     >
       <motion.div className="avatar" layout />
       <h2>Construction Zone</h2>
@@ -92,7 +114,7 @@ const Game1 = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img src="https://i.imgur.com/Um2PF1x.png" alt="TicTacToe"/>
+      <img src="https://i.imgur.com/Um2PF1x.png" alt="TicTacToe" />
       <br />
       <NavLink exact to="/tic_tac_toe" style={linkStyles} className="links">
         Play Game
@@ -108,7 +130,7 @@ const Game2 = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img src="https://i.imgur.com/mrTXM2l.png" alt="Hangman"/>
+      <img src="https://i.imgur.com/mrTXM2l.png" alt="Hangman" />
       <br />
       <NavLink exact to="/hangman" style={linkStyles} className="links">
         Play Game
@@ -124,7 +146,10 @@ const Game3 = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img src="https://i.giphy.com/media/3o7btQ0NH6Kl8CxCfK/giphy.webp" alt="Construction"/>
+      <img
+        src="https://i.giphy.com/media/3o7btQ0NH6Kl8CxCfK/giphy.webp"
+        alt="Construction"
+      />
       <br />
       <NavLink exact to="/workinprogress" style={linkStyles} className="links">
         Play Game

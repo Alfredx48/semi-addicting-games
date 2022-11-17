@@ -3,6 +3,8 @@ import {createGlobalStyle} from "styled-components"
 const HangmanStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=pressstart2p:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sono&effect=3d');
+
 
 * {
   box-sizing: border-box;

@@ -2,7 +2,7 @@ import {createGlobalStyle} from "styled-components"
 
 const TicTacToeStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Rancho&effect=fire|neon');
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation|neon');
 html, body{
   min-height: 100vh;
   padding: 0;
@@ -65,6 +65,9 @@ table tr td:last-child
 td:hover
 {
 background: paleturquoise;
+}
+.links{
+  padding: 12px;
 }
 `
 export default TicTacToeStyle

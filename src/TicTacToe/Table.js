@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Table = ({handleClick, xoClass, changeXO, cells}) => {
+const Table = ({handleClick, cells}) => {
     
 const Cell = ({ num }) => {
     return <td onClick={() => 
@@ -8,9 +8,7 @@ const Cell = ({ num }) => {
 }
 
   return (
-    <table    
-    className={xoClass ? 'font-effect-fire' : "font-effect-neon" } 
-    onClick={changeXO} >
+    <table className='font-effect-fire-animation'>
         <tbody>
             <tr>
                 <Cell num={0} />

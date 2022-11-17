@@ -18,7 +18,6 @@ const TicTacToe = () => {
     const [winner, setWinner] = useState(null)
     const [cells, setCells] = useState(Array(9).fill(''))
     const [clicked, setClicked] = useState(0)
-    const [xoClass, setXoClass] = useState(true)
     /* [
         '', '', '', 
         '', '', '',
@@ -124,8 +123,6 @@ const TicTacToe = () => {
         setClicked(0)
     }
 
-    const changeXO = () => setXoClass(!xoClass)
-
     return (
         <div className='container'>
                         <motion.div
@@ -138,7 +135,9 @@ const TicTacToe = () => {
                     damping: 20
                 }}
                 >
-            <h1>Turn : {turn}</h1>
+                    <h1 className='font-effect-fire-animation'>TicTacToe</h1>
+                    <br/>
+            <h2 className='font-effect-neon'>Turn : {turn}</h2>
             </motion.div>
             <motion.div
                 className="container"
@@ -152,9 +151,6 @@ const TicTacToe = () => {
                 >
                 <Table
                     handleClick={handleClick}
-                    xoClass={xoClass}
-                    setXoClass={setXoClass}
-                    changeXO={changeXO}
                     cells={cells}
                 />
             </motion.div>
