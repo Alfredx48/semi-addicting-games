@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Figure from "./Figure";
-// import './Hangman.css'
 import WrongLetters from "./WrongLetters";
 import Word from "./Word";
 import WordPopup from "./WordPopup";
-import Notification from "./Notification";
-import { showNotification as show } from "./Helpers";
 import { motion } from "framer-motion";
 
 const words = [
@@ -50,38 +47,13 @@ const words = [
   "rebel",
 ];
 
-
-
+let selectedWord = words[Math.floor(Math.random() * words.length)];
 const Hangman = () => {
-
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [showNotification, setShowNotification] = useState(false);
-  const [Words, setWords] = useState([]);
-  const [selectedWords, setSelectedWords] = useState([]);
-
-  const fetchWords = () => {
-    fetch("http://localhost:8000/words")
-      .then((res) => res.json())
-      .then((wordData) => {
-        setWords(wordData);
-        console.log(wordData);
-        console.log(selectedWord)
-      });
-  };
 
   useEffect(() => {
-    fetchWords();
- 
-  
-  }, []);
-
-  let selectedWord = words[Math.floor(Math.random() * words.length)];
-  console.log(Words[Math.floor(Math.random() * Words.length)])
-
-  useEffect(() => {
-   
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
@@ -89,14 +61,10 @@ const Hangman = () => {
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters((currentLetters) => [...currentLetters, letter]);
-          } else {
-            show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters((currentLetters) => [...currentLetters, letter]);
-          } else {
-            show(setShowNotification);
           }
         }
       }
@@ -104,7 +72,7 @@ const Hangman = () => {
     window.addEventListener("keydown", handleKeydown);
 
     return () => window.removeEventListener("keydown", handleKeydown);
-  }, [correctLetters, wrongLetters, playable ]);
+  }, [correctLetters, wrongLetters, playable]);
 
   function playAgain() {
     setPlayable(true);
@@ -142,7 +110,6 @@ const Hangman = () => {
         setPlayable={setPlayable}
         playAgain={playAgain}
       />
-      {/* <Notification showNotification={showNotification} /> */}
     </>
   );
 };

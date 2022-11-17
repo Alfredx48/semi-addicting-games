@@ -50,6 +50,7 @@ const Form = () => {
 
   return (
     <div className="formReviews">
+      <h1 className="font-effect-anaglyph">Reviews</h1>
       <motion.div
         initial={{ scale: 0 }}
         animate={{ rotate: 360, scale: 1 }}
