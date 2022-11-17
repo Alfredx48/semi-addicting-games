@@ -74,7 +74,7 @@ const Hangman = () => {
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
       <WordPopup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain} />
-      <Notification showNotification={showNotification} />
+      {/* <Notification showNotification={showNotification} /> */}
     </>
   );
 }

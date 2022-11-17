@@ -72,6 +72,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    
   }
 
 * {
@@ -96,9 +97,11 @@ li {
 ul {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: azure;
   padding: 20px;
   border-radius: 25px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 li {
