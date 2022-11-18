@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import "./TicTacToe.css"
 import {motion} from "framer-motion"
 import Table from './Table';
-import Alert from 'react-bootstrap/Alert';
+
 
 const linkStyles = {
     display: "inline-block",

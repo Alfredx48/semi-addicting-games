@@ -92,14 +92,16 @@ h1 {
   display: none;
   align-items: center;
   justify-content: center;
+ 
 }
 
 .popup {
   background: #2980b9;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
+
 }
 
 .popup button {
