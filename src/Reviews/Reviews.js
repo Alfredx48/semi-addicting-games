@@ -1,4 +1,3 @@
-import React from "react";
 import {motion} from "framer-motion"
 
 const variants = {
@@ -17,7 +16,6 @@ const variants = {
     },
   },
 };
-
 const Reviews = ({ reviews }) => {
   const mappedReviews = reviews.map((review) => {
     return (
@@ -41,6 +39,6 @@ const Reviews = ({ reviews }) => {
     );
   });
   return <div>{mappedReviews}</div>;
-};
+}
 
 export default Reviews;

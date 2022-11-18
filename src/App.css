@@ -56,7 +56,7 @@ button:active{
 }
 .form
 {
-    background-color: cornflowerblue;
+    background-color: rgba(100, 149, 237, .5);
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -73,4 +73,21 @@ button:active{
   margin: 0 auto;
   border-radius: 20px;
   padding: 20px;
+}
+input{
+  padding: 8px;
+  border-radius: 10px;
+}
+textarea{
+  padding: 8px;
+  border-radius: 10px;
+  height: 100px;
+}
+select{
+  padding: 8px;
+  border-radius: 10px;
+}
+button{ 
+  padding: 8px;
+  border-radius: 10px;
 }

@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 // import "./TicTacToe.css"
 import {motion} from "framer-motion"
 import Table from './Table';
+import Alert from 'react-bootstrap/Alert';
 
 const linkStyles = {
     display: "inline-block",
     padding: "12px",
     margin: "0 6px 6px",
-    background: "lightgreen",
+    background: "rebeccapurple",
     textDecoration: "none",
     color: "white",
     borderRadius:"10px"
@@ -15,9 +16,10 @@ const linkStyles = {
 
 const TicTacToe = () => {
     const [turn, setTurn] = useState('X')
-    const [winner, setWinner] = useState(null)
+    const [winner, setWinner] = useState("nobody")
     const [cells, setCells] = useState(Array(9).fill(''))
     const [clicked, setClicked] = useState(0)
+    const [showWinner, setShowWinner] = useState(false)
     /* [
         '', '', '', 
         '', '', '',
@@ -70,9 +72,11 @@ const TicTacToe = () => {
                     ) {
                         // set the winner to the first letter in the squares array
                         setWinner(squares[pattern[0]])
-                    }else if (clicked === 8 && winner === null) {
-                        setWinner("nobody")
-                    }
+                        setShowWinner(true)
+                    }else if (clicked === 8) {
+                        setShowWinner(true)
+                
+                }
                 })
             }
         }
@@ -118,9 +122,10 @@ const TicTacToe = () => {
         }
         
         const handleRestart = () => {
-        setWinner(null);
+        setWinner("nobody");
         setCells(Array(9).fill(''));
         setClicked(0)
+        setShowWinner(false)
     }
 
     return (
@@ -154,7 +159,7 @@ const TicTacToe = () => {
                     cells={cells}
                 />
             </motion.div>
-            {winner && ( 
+            {showWinner && ( 
             <motion.div
                 className="container"
                 initial={{ scale: 0 }}

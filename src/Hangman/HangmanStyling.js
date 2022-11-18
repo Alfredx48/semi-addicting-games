@@ -63,7 +63,7 @@ h1 {
 .word {
   display: flex;
   position: absolute;
-  bottom: -100px;
+  bottom: -200px;
   left: 50%;
   transform: translateX(-50%);
 }

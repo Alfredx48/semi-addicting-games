@@ -60,7 +60,6 @@ const Form = () => {
           damping: 20,
         }}
       >
-        <br/>
         <form className="form" onSubmit={handleSubmit}>
           <label>Game:</label>
           <select onChange={handleChange} name="game">

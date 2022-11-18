@@ -13,8 +13,5 @@ html, body{
   background: linear-gradient(173deg, khaki, #1b1212 );
   background-repeat: no-repeat;
   }
-h1{
-  font-family: rubikglitch;
-}
 `
 export default ConstructionZoneStyle

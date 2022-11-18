@@ -79,21 +79,25 @@ function App() {
     <div className="App">
       <Switch>
       <Route exact path="/">
+        <br/>
       <NavBar/>
         <HomePageStyle />
         <HomePage />
       </Route>
       <Route exact path="/tic_tac_toe">
+      <br/>
       <NavBar/>
         <TicTacToeStyle />
         <TicTacToe />
       </Route>
       <Route exact path="/hangman">
+      <br/>
       <NavBar/>
         <HangmanStyle/>
         <Hangman/>
       </Route>
       <Route exact path="/workinprogress">
+      <br/>
       <NavBar/>
         <ConstructionZoneStyle/>
         <h1 className='font-effect-anaglyph'>WorkInProgress</h1>
@@ -102,6 +106,7 @@ function App() {
         <Img/>
       </Route>
       <Route exact path="/reviews">
+      <br/>
         <NavBar/>
         <Reviews />
       </Route>
