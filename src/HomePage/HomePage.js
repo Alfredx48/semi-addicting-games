@@ -34,11 +34,11 @@ const HomePage = () => {
       <motion.div
         className="container"
         initial={{ scale: 0 }}
-        animate={{ rotate: 360, scale: 1 }}
+        animate={{ rotate: 720, scale: 1 }}
         transition={{
           type: "spring",
-          stiffness: 150,
-          damping: 20,
+          stiffness: 200,
+          damping: 15,
         }}
       >
         <h1 className="font-effect-3d-float">Semi-Addicting Games</h1>
@@ -65,7 +65,7 @@ const Item1 = () => {
       whileTap={{ scale: 0.95 }}
     >
       <motion.div className="avatar" layout />
-      <h2>TicTacToe</h2>
+      <h2 className='font-effect-fire-animation'>TicTacToe</h2>
       <AnimatePresence>{isOpen && <Game1 />}</AnimatePresence>
     </motion.li>
   );
@@ -83,7 +83,7 @@ const Item2 = () => {
       whileTap={{ scale: 0.95 }}
     >
       <motion.div className="avatar" layout />
-      <h2>HangMan</h2>
+      <h2 className="font-effect-3d">HangMan</h2>
       <AnimatePresence>{isOpen && <Game2 />}</AnimatePresence>
     </motion.li>
   );
@@ -101,7 +101,7 @@ const Item3 = () => {
       whileTap={{ scale: 0.95 }}
     >
       <motion.div className="avatar" layout />
-      <h2>Construction Zone</h2>
+      <h2 className='font-effect-anaglyph'>Construction Zone</h2>
       <AnimatePresence>{isOpen && <Game3 />}</AnimatePresence>
     </motion.li>
   );
