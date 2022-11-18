@@ -16,7 +16,7 @@ const Form = () => {
 
   const [formData, setFormData] = useState({
     id: "",
-    game: "",
+    game: "ConstructionZone",
     name: "",
     rating: 0,
     review: "",
@@ -37,6 +37,13 @@ const Form = () => {
         console.log(review);
         setReviews((reviews) => [...reviews, review]);
       });
+      setFormData({
+        id: "",
+        game: "ConstructionZone",
+        name: "",
+        rating: 0,
+        review: "",
+      })
   };
 
   const handleChange = (e) => {
@@ -62,10 +69,10 @@ const Form = () => {
       >
         <form className="form" onSubmit={handleSubmit}>
           <label>Game:</label>
-          <select onChange={handleChange} name="game">
-            <option>TicTacToe</option>
-            <option>HangMan</option>
-            <option>ConstructionZone</option>
+          <select onChange={handleChange} value={formData.game} name="game">
+            <option value="TicTacToe">TicTacToe</option>
+            <option value="HangMan">HangMan</option>
+            <option value="ConstructionZone">ConstructionZone</option>
           </select>
           <label>Name:</label>
           <input
@@ -75,19 +82,20 @@ const Form = () => {
             name="name"
           ></input>
           <label>Rating:</label>
-          <select onChange={handleChange} name="rating">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select onChange={handleChange} value={formData.rating} name="rating">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <label>Reviews:</label>
           <textarea
             onChange={handleChange}
             placeholder="Review"
             name="review"
+            value={formData.review}
           ></textarea>
           <br />
           <button>Submit</button>
