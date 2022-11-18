@@ -114,7 +114,7 @@ const Game1 = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img src="https://i.imgur.com/Um2PF1x.png" alt="TicTacToe" />
+      <img src="https://i.imgur.com/6sCseoN.png" alt="TicTacToe" />
       <br />
       <NavLink exact to="/tic_tac_toe" style={linkStyles} className="links">
         Play Game
