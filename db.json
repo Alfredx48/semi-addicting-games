@@ -20,13 +20,6 @@
       "name": "Jason Voorhees",
       "rating": 3,
       "review": "too gruesome"
-    },
-    {
-      "id": 4,
-      "game": "TicTacToe",
-      "name": "Cameron",
-      "rating": "5",
-      "review": "Loved the Game!"
     }
   ]
 }

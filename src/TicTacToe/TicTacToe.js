@@ -58,15 +58,15 @@ const TicTacToe = () => {
                 // if any of the squares has an empty string no X or O
                 // we cant have a winner
                 // console.log(squares[pattern[1]])
-                if (
-                    [...cells, pattern[0]] === "" ||
+                if ( 
+                    squares[pattern[0]] === "" ||
                     squares[pattern[1]] === "" ||
                     squares[pattern[2]] === ""
                 ) {
                     // do nothing
                     // check to see if first position matches the second 
                     // and if the second matches the third
-                } else if (
+                }  else if (
                     squares[pattern[0]] === squares[pattern[1]] &&
                     squares[pattern[1]] === squares[pattern[2]]
                     ) {
@@ -75,7 +75,6 @@ const TicTacToe = () => {
                         setShowWinner(true)
                     }else if (clicked === 8) {
                         setShowWinner(true)
-                
                 }
                 })
             }
