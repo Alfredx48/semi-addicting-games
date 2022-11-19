@@ -6,7 +6,7 @@ const Form = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/posts")
+    fetch("https://reviews-json.onrender.com/posts")
       .then((res) => res.json())
       .then((reviewData) => {
         setReviews(reviewData);
@@ -31,7 +31,7 @@ const Form = () => {
       },
       body: JSON.stringify(formData),
     };
-    fetch("http://localhost:8000/posts", configObj)
+    fetch("https://reviews-json.onrender.com/posts", configObj)
       .then((res) => res.json())
       .then((review) => {
         console.log(review);
