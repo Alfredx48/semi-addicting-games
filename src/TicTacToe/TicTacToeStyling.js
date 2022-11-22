@@ -30,6 +30,7 @@ table td {
 table
 {
   background:black;
+  cursor: pointer;
 
 }
 table td

@@ -20,34 +20,6 @@
       "name": "Jason Voorhees",
       "rating": 3,
       "review": "too gruesome"
-    },
-    {
-      "id": 4,
-      "game": "TicTacToe",
-      "name": "Cameron",
-      "rating": "5",
-      "review": "Loved the Game!"
-    },
-    {
-      "id": 5,
-      "game": "ConstructionZone",
-      "name": "Liv",
-      "rating": "5",
-      "review": "These games are totally semi-addicting!"
-    },
-    {
-      "id": 6,
-      "game": "ConstructionZone",
-      "name": "",
-      "rating": 0,
-      "review": ""
-    },
-    {
-      "id": 7,
-      "game": "HangMan",
-      "name": "5465",
-      "rating": 0,
-      "review": "564654"
     }
   ]
 }

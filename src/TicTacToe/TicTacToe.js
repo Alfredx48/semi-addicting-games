@@ -36,7 +36,6 @@ const TicTacToe = () => {
         [2, 4, 6],
       ],
     };
-
     // Loop through each of the items in the squares Array
     // to see if any of them match the combos.
     for (let combo in combos) {
@@ -61,6 +60,7 @@ const TicTacToe = () => {
           setShowWinner(true);
         } else if (clicked === 8) {
           setShowWinner(true);
+
         }
       });
     }
