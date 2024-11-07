@@ -35,7 +35,7 @@ const Form = () => {
       .then((res) => res.json())
       .then((review) => {
         console.log(review);
-        setReviews((reviews) => [...reviews, review]);
+        setReviews((reviews) => [review, ...reviews]);
       });
       setFormData({
         id: "",
