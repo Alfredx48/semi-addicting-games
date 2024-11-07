@@ -16,6 +16,7 @@ const variants = {
     },
   },
 };
+
 const Reviews = ({ reviews }) => {
   const mappedReviews = reviews.map((review) => {
     return (
